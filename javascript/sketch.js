@@ -32,7 +32,6 @@ let score;
 
 function setup() {
   createCanvas(600, 400);
-  ost.loop();
 }
 
 function draw() {
@@ -81,9 +80,9 @@ function player(x, y){
 
 function walls(){
   if(ballX+ballRadius>width)
-    {p1Score += 1; ballXSpd *= -1;ballX = 580; score.play();}
+    {p1Score += 1; ballXSpd *= -1;ballX = 580;}
   if(ballX-ballRadius < 0)
-  {p2Score += 1; ballXSpd *= -1;ballX=20; score.play();}
+  {p2Score += 1; ballXSpd *= -1;ballX=20;}
 
   if(ballY+ballRadius>height || ballY-ballRadius <0){
     ballYSpd *= -1;
@@ -94,13 +93,5 @@ function collision(x, y){
   collided = collideRectCircle(x, y, playerW, playerH, ballX, ballY, ballRadius);
   if (collided){
     ballXSpd *= -1;
-    hit.play();
   }
-}
-
-function preload(){
-  soundFormats('mp3');
-  hit = loadSound("sounds/raquetada");
-  score = loadSound("sounds/ponto");
-  ost = loadSound("sounds/trilha");
 }
