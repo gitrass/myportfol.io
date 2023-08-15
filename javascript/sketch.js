@@ -25,11 +25,6 @@ collided = false;
 let p1Score = 0;
 let p2Score = 0;
 
-//sounds
-let hit;
-let ost;
-let score;
-
 function setup() {
   createCanvas(600, 400);
 }
@@ -43,7 +38,6 @@ function draw() {
   player(player2X, player2Y);
   collision(player2X, player2Y);
   collision(playerX, playerY);
-  preload();
   //bot();
 }
 
