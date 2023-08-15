@@ -56,20 +56,17 @@ function ball(){
 
 function player(x, y){
   rect(x, y, playerW, playerH);
-  if (keyIsDown(87)) {
-    playerY -= playerSpd;
-  }
-  if(keyIsDown(83)) {
-    playerY += playerSpd;
-  }
-  if(player2){
-    if(keyIsDown(UP_ARROW)) {
-      player2Y -= playerSpd;
-    }
-    if(keyIsDown(DOWN_ARROW)) {
-      player2Y += playerSpd;
-    }
-  }
+  if (playerY >= 0){if (keyIsDown(87)) {playerY -= playerSpd;}}
+  else {playerY -= 0;}
+
+  if (playerY + playerH <= height){if(keyIsDown(83)) {playerY += playerSpd;}}
+  else {playerY -= 0;}
+
+  if(player2Y >= 0){if (keyIsDown(UP_ARROW)) {player2Y -= playerSpd;}}
+  else {player2Y -= 0;}
+
+  if(player2Y + playerH <= height){if(keyIsDown(DOWN_ARROW)) {player2Y += playerSpd;}}
+  else {player2Y -= 0;}
 }
 
 function walls(){
